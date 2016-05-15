@@ -6,9 +6,8 @@ namespace :my_namespace do
 	end
 	desc "testing everything"
 	task chao2: :environment do
-		puts 'Test 2222!'
+		puts 'Test 2!'
 	end
-
 	task :all => ["my_namespace:hola1", "my_namespace:chao2"]
 
 end
