@@ -2,7 +2,10 @@ Rails.application.routes.draw do
   
   root 'welcome#hello'
 
-  post 'instagram/tag/buscar#buscarTag'
+  post 'instagram/tag/buscar' => 'instagram#buscarTag'
+
+  get 'test' => 'instagram#prueba'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
