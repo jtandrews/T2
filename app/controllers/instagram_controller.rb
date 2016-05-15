@@ -7,7 +7,7 @@ class InstagramController < ApplicationController
 	skip_before_filter  :verify_authenticity_token
 	def buscarTag
 		url = 'https://api.instagram.com/v1/tags/'
-		version = '1.0.1'
+		version = '1.0.2'
 		# token = '2019746130.59a3f2b.86a0135240404ed5b908a14c0a2d9402'
 		tag = params[:tag].to_s
 		access_token = params[:access_token].to_s
@@ -40,7 +40,7 @@ class InstagramController < ApplicationController
 							url1 = response['data'][0]['images']['thumbnail']['url'].to_s
 						end
 					end
-				elsif type1 == '"video"'
+				elsif type1 == 'video'
 					url1 = response['data'][0]['videos']['standard_resolution']['url'].to_s
 					if url1 == ''
 						url1 = response['data'][0]['videos']['low_resolution']['url'].to_s
@@ -62,7 +62,7 @@ class InstagramController < ApplicationController
 					final_string += ',{"tags":'+tags2+',"username":"'+username2+'","likes":'+likes2
 
 					url2 = ''
-					if type2 == '"image"'
+					if type2 == 'image'
 						url2 = response['data'][1]['images']['standard_resolution']['url'].to_s
 						if url2 == ''
 							url2 = response['data'][1]['images']['low_resolution']['url'].to_s
@@ -70,7 +70,7 @@ class InstagramController < ApplicationController
 								url2 = response['data'][1]['images']['thumbnail']['url'].to_s
 							end
 						end
-					elsif type2 == '"video"'
+					elsif type2 == 'video'
 						url2 = response['data'][1]['videos']['standard_resolution']['url'].to_s
 						if url2 == ''
 							url2 = response['data'][1]['videos']['low_resolution']['url'].to_s
@@ -92,7 +92,7 @@ class InstagramController < ApplicationController
 						final_string += ',{"tags":'+tags3+',"username":"'+username3+'","likes":'+likes3
 
 						url3 = ''
-						if type3 == '"image"'
+						if type3 == 'image'
 							url3 = response['data'][2]['images']['standard_resolution']['url'].to_s
 							if url3 == ''
 								url3 = response['data'][2]['images']['low_resolution']['url'].to_s
@@ -100,7 +100,7 @@ class InstagramController < ApplicationController
 									url3 = response['data'][2]['images']['thumbnail']['url'].to_s
 								end
 							end
-						elsif type3 == '"video"'
+						elsif type3 == 'video'
 							url3 = response['data'][2]['videos']['standard_resolution']['url'].to_s
 							if url3 == ''
 								url3 = response['data'][2]['videos']['low_resolution']['url'].to_s
