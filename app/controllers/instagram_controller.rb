@@ -7,7 +7,7 @@ class InstagramController < ApplicationController
 	skip_before_filter  :verify_authenticity_token
 	def buscarTag
 		url = 'https://api.instagram.com/v1/tags/'
-		version = '1.0.2'
+		version = '1.0.3'
 		# token = '2019746130.59a3f2b.86a0135240404ed5b908a14c0a2d9402'
 		tag = params[:tag].to_s
 		access_token = params[:access_token].to_s

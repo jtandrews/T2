@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   root 'welcome#hello'
 
-  post 'instagram/tag/buscar' => 'instagram#buscarTag'
+  post 'instagram/tag/buscar' => 'instagram#buscarTag', defaults: {format: :json}
 
   get 'test' => 'instagram#prueba'
   
